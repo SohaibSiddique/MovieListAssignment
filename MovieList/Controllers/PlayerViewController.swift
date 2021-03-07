@@ -25,7 +25,12 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController: YTPlayerViewDelegate {
     
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        //  print(state)
+        switch state {
+        case .ended:
+            self.navigationController?.popViewController(animated: true)
+        default:
+            break
+        }
     }
     
     func playerView(_ playerView: YTPlayerView, didPlayTime playTime: Float) {
